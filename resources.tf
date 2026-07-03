@@ -17,14 +17,14 @@ module "kong" {
   depends_on = [module.httpd]
 }
 
-module "kong-session" {
-  source = "./plugins/kong-session"
+module "kong-auth" {
+  source = "./plugins/kong-auth"
   depends_on = [module.kong]
 }
 
 module "ingress" {
   source = "./modules/ingress"
-  depends_on = [module.kong-session]
+  depends_on = [module.kong-auth]
 }
 
 
