@@ -1,5 +1,4 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b5d8bcf8-d410-4dbf-8a40-8277cff18e36" />
-
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/5d46c4f5-e511-4ab2-9d82-a2908bdd8397" />
 
 
 ## AWS | EKS Kong BluePrint
