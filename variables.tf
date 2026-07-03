@@ -30,3 +30,8 @@ variable "namespace" {
   default     = "weaviate"
   description = "Kubernetes namespace where Weaviate is deployed"
 }
+
+variable "make_gp3_default" {
+  type    = bool
+  default = true
+}
