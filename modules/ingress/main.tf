@@ -7,7 +7,7 @@ resource "kubernetes_ingress_v1" "kong_ingress" {
 
     annotations = {
       "konghq.com/strip-path" = "true"
-      "konghq.com/plugins" = "session-config"
+      "konghq.com/plugins"    = "key-auth"
     }
 
     labels = {
