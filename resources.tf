@@ -1,3 +1,4 @@
+
 ###  ---  Application  ---  ###
 module "httpd" {
   source = "./modules/httpd"
@@ -15,3 +16,10 @@ module "kong" {
   source = "./modules/kong"
   depends_on = [module.httpd]
 }
+
+module "ingress" {
+  source = "./modules/ingress"
+  depends_on = [module.kong]
+}
+
+
