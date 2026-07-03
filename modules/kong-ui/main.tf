@@ -49,6 +49,28 @@ resource "kubernetes_deployment_v1" "kong_ui" {
   }
 }
 
+
+resource "kubernetes_service_v1" "kong_ui" {
+  metadata {
+    name      = "kong-ui"
+    namespace = var.namespace
+  }
+
+  spec {
+    selector = {
+      app = "kong-ui"
+    }
+
+    port {
+      port        = 80
+      target_port = 3000
+    }
+
+    type = "ClusterIP"
+  }
+}
+
+
 variable "namespace" {
   type    = string
   default = "kong"
