@@ -22,7 +22,7 @@ resource "helm_release" "kong" {
     },
     {
       name  = "proxy.externalTrafficPolicy"
-      value = "Cluster" #Local
+      value = "Cluster" # ✅ Multi-AZ safe traffic handling
     },
     {
       name  = "proxy.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-type"
@@ -35,6 +35,10 @@ resource "helm_release" "kong" {
     {
       name  = "proxy.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-nlb-target-type"
       value = "ip"
+    },
+    { 
+    name  = "proxy.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-attributes"
+    value = "load_balancing.cross_zone.enabled=true"  # ✅ CRITICAL: cross-zone load balancing (true Multi-AZ behavior)
     }
   ]
 }
