@@ -17,14 +17,9 @@ module "kong" {
   depends_on = [module.httpd]
 }
 
-module "kong-ui" {
-  source = "./modules/kong-ui"
-  depends_on = [module.kong]
-}
-
 module "ingress" {
   source = "./modules/ingress"
-  depends_on = [module.kong-ui]
+  depends_on = [module.kong]
 }
 
 
